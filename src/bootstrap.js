@@ -3,9 +3,12 @@ require('angular');
 require('./app');
 
 require('./pages/index');
+
 require('./directives/app-header');
 require('./directives/app-footer');
+require('./directives/weather');
 require('./directives/weather-view');
+
 require('./services/city-service');
 require('./services/weather-service');
 
