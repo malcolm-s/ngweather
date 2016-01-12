@@ -22,8 +22,8 @@ angular.module('app').factory('WeatherService',
 
     return {
       all: function() {
-        var cities = CityService.all();
-        return $q.all(cities.map(getWeather));
+        return CityService.all()
+          .then(cities => $q.all(cities.map(getWeather)));
       }
     };
   }

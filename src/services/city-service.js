@@ -1,24 +1,16 @@
-angular.module('app').factory('CityService', function($http) {
+import {take} from "../utils/array";
+
+angular.module('app').factory('CityService', $http => {
+  const apiUrl = "https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json";
+
+  function toCityLocation(name) {
+    return { name, country: 'uk' };
+  }
+
   return {
-    all: function() {
-      var url = "https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json";
-
-      $http.get(url).then(function(res) {
-        var data = res.data["United Kingdom"];
-        console.log(data);
-        var cityData = data.map(function(city) {
-          return { name: city, country: 'uk' };
-        });
-
-        console.log(cityData);
-      });
-
-      return [
-        { name: 'London', country: 'uk' },
-        { name: 'Paris', country: 'fr' },
-        { name: 'Reykjavik', country: 'is' },
-        { name: 'Helsinki', country: 'fi' }
-      ];
+    all() {
+      return $http.get(apiUrl)
+        .then(res => take(res.data["United Kingdom"].map(toCityLocation), 50));
     }
   };
 });
