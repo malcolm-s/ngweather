@@ -1,5 +1,4 @@
 angular.module('app').factory('WeatherService',
-  ['$http', '$q', 'CityService',
   function($http, $q, CityService) {
     var weatherApiUrl = 'http://api.openweathermap.org/data/2.5/weather?appid=2de143494c0b295cca9337e1e96b00e0&units=metric';
 
@@ -21,10 +20,10 @@ angular.module('app').factory('WeatherService',
     }
 
     return {
-      all: function() {
+      all() {
         return CityService.all()
           .then(cities => $q.all(cities.map(getWeather)));
       }
     };
   }
-]);
+);

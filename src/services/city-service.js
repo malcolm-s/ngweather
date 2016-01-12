@@ -1,6 +1,6 @@
 import {take} from "../utils/array";
 
-angular.module('app').factory('CityService', $http => {
+angular.module('app').factory('CityService', function ($http) {
   const apiUrl = "https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json";
 
   function toCityLocation(name) {
