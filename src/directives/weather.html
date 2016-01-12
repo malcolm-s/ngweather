@@ -1,7 +1,7 @@
 <div class="">
   <ul>
     <li ng-repeat="info in weatherInfo">
-      In {{info.location}} it's {{info.raining ? 'raining' : 'not raining'}}
+      <weather-view info="info"></info>
     </li>
   </ul>
 </div>
