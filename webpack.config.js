@@ -20,5 +20,8 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'raw' }
     ]
+  },
+  devServer: {
+    inline: true
   }
 };
