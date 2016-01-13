@@ -10,7 +10,8 @@ angular.module('app').factory('CityService', function ($http) {
   return {
     all() {
       return $http.get(apiUrl)
-        .then(res => take(res.data["United Kingdom"].map(toCityLocation), 50));
+        .then(res => take(res.data["United Kingdom"], 10))
+        .then(cities => cities.map(toCityLocation));
     }
   };
 });
